@@ -50,10 +50,16 @@ function encriptador (texto){
 
 encriptar.addEventListener("click", function (){
     var texto =document.querySelector("#id-texto-ingresado").value;
-    var textoProcesado = document.querySelector(".texto-procesado");
+    var textoProcesado = document.querySelector("textarea");
     var arrayPalabras;
 
     if (validarTexto(texto)) {
-        encriptador(texto);
+        arrayPalabras = encriptador(texto);
+        var textoEncriptado ="";
+        for (i=0; i < arrayPalabras.length; i++){
+            textoEncriptado = textoEncriptado + arrayPalabras[i] + " ";
+        }
+        textoProcesado.textContent = textoEncriptado;
+        
     }
 });
