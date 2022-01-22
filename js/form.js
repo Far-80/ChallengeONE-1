@@ -1,5 +1,3 @@
-var encriptar = document.querySelector(".boton-encriptar");
-
 
 function dividirCadena(cadenaADividir) {
     var separador = " ";
@@ -20,46 +18,22 @@ function validarTexto (texto){
     return valido;
 }
 
-function encriptador (texto){
-    arrayPalabras = dividirCadena(texto);
-    for (i=0; i < arrayPalabras.length; i++){
-        var palabra = arrayPalabras[i];
-        var texto = "";
-        console.log(palabra);
-        for (j=0; j < palabra.length; j++){
-            if (palabra[j] == "a"){
-                texto = texto + "ai";
-            } else if (palabra[j] == "e"){
-                texto = texto + "enter";
-            } else if (palabra[j] == "i"){
-                texto = texto + "imes";
-            } else if (palabra[j] == "o"){
-                texto = texto + "ober";
-            } else if (palabra[j] == "u"){
-                texto = texto + "ufat";
-            }else{
-                texto = texto + palabra[j];
-            }
-        }
-        console.log(texto);
-        arrayPalabras[i] = texto;
-    }
-    return arrayPalabras;
-}
 
 
-encriptar.addEventListener("click", function (){
-    var texto =document.querySelector("#id-texto-ingresado").value;
-    var textoProcesado = document.querySelector("textarea");
+var encriptar = document.querySelector("#btn-encriptar");
+
+encriptar.addEventListener("click", function (evt){
+    evt.preventDefault();
+    var texto =document.querySelector("#input-texto").value;
     var arrayPalabras;
 
     if (validarTexto(texto)) {
+        var mensaje = document.querySelector("#msg");
         arrayPalabras = encriptador(texto);
         var textoEncriptado ="";
         for (i=0; i < arrayPalabras.length; i++){
             textoEncriptado = textoEncriptado + arrayPalabras[i] + " ";
         }
-        textoProcesado.textContent = textoEncriptado;
-        
+        mensaje.value = textoEncriptado;
     }
 });

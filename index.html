@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-		<meta charset="UTF-8">
-		<title>ENCRIPTADOR</title>
-		<link rel="stylesheet" type="text/css" href="css/index.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1 class="titulo">código secreto</h1>
 
-	</head>
-    <body>
-		<header>
-			<div class="container">
-				<h1 class="titulo">ENCRIPTADOR</h1>
-			</div>
-		</header>
+  <main class="main">
+    <section class="form box">
+      <form action="">
+        <label for="input-texto">Solo letras minúsculas, sin acento</label>
+        <input class="text-input" type="text" name="input-texto" id="input-texto" placeholder="Ingrese el texto aqui">
+        <input class="btn" type="submit" value="encriptar!" id="btn-encriptar">
+        <input class="btn" type="submit" value="desencriptar!" id="btn-desencriptar">
+      </form>
+    </section>
+  
+    <section class="msg box">
+      <h2 id="">Mensaje encriptada:</h2>
+      <input class="text-input" type="text" id="msg"></input>
+      <input class="btn" type="submit" value="copiar" id="btn-copy">
+    </section>
+  </main>
 
-        <main>
-            <label for="textoIngresado">Ingresar texto solo en minúscula, sin acentos ni caracteres especiales:</label>
-            <div class = "texto-Encriptado-Desencriptado">
-                 <input id="id-texto-ingresado" type="text" class="input-texto" >
-
-                <label for="textoResultado">Resultado:</label>
-                <textarea id="area-texto" rows="1" cols="40"></textarea>
-            </div>
-            <button id="idEncriptar" class="boton-encriptar">
-                ENCRIPTAR
-            </button>
-
-            <button id="idDesencriptar" class="boton">
-                DESENCRIPTAR
-            </button>
-
-        </main>
-        <script src = "js/form.js"></script>
-
-    </body>
-
+  <script src="js/script.js"></script>
+  <script src="js/form.js"></script>
+</body>
 </html>
