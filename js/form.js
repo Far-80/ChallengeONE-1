@@ -37,3 +37,21 @@ encriptar.addEventListener("click", function (evt){
         mensaje.value = textoEncriptado;
     }
 });
+
+var desencriptar = document.querySelector("#btn-desencriptar");
+
+desencriptar.addEventListener("click", function (evt){
+    evt.preventDefault();
+    var texto =document.querySelector("#input-texto").value;
+    var arrayPalabras;
+
+    if (validarTexto(texto)) {
+        var mensaje = document.querySelector("#msg");
+        arrayPalabras = desencriptador(texto);
+        var textoDesencriptado ="";
+        for (i=0; i < arrayPalabras.length; i++){
+            textoDesencriptado = textoDesencriptado + arrayPalabras[i] + " ";
+        }
+        mensaje.value = textoDesencriptado;
+    }
+});

@@ -2,35 +2,29 @@ function encriptador (texto){
     arrayPalabras = dividirCadena(texto);
     for (i=0; i < arrayPalabras.length; i++){
         var palabra = arrayPalabras[i];
-        var texto = "";
-        console.log(palabra);
-        for (j=0; j < palabra.length; j++){
-            if (palabra[j] == "a"){
-                texto = texto + "ai";
-            } else if (palabra[j] == "e"){
-                texto = texto + "enter";
-            } else if (palabra[j] == "i"){
-                texto = texto + "imes";
-            } else if (palabra[j] == "o"){
-                texto = texto + "ober";
-            } else if (palabra[j] == "u"){
-                texto = texto + "ufat";
-            }else{
-                texto = texto + palabra[j];
-            }
-        }
-        arrayPalabras[i] = texto;
+        palabra = palabra.replace(/a/g,"ai");
+        palabra = palabra.replace(/e/g, "enter");
+        palabra = palabra.replace(/i/g,"imes");
+        palabra = palabra.replace(/o/g, "ober");
+        palabra = palabra.replace(/u/g, "ufat");
+
+        arrayPalabras[i] = palabra;
     }
     return arrayPalabras;
 }
 
+function desencriptador (texto){
+    arrayPalabras = dividirCadena(texto);
+    for (i=0; i < arrayPalabras.length; i++){
+        var palabra = arrayPalabras[i];
 
-/* Reglas de desencriptación: 
-"enter" es convertido para "e" 
-"imes" es convertido para "i"
-"ai" es convertido para "a"
-"ober" es convertido para "o"
-"ufat" es convertido para "u"
-Solo letras minusculas
-No se permite acentuación de palabras   
-*/
+        palabra = palabra.replace(/ai/g,"a");
+        palabra = palabra.replace(/enter/g, "e");
+        palabra = palabra.replace(/imes/g,"i");
+        palabra = palabra.replace(/ober/g, "o");
+        palabra = palabra.replace(/ufat/g, "u");
+
+        arrayPalabras[i] = palabra;
+    }
+    return arrayPalabras;
+}
