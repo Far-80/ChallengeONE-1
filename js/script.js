@@ -1,11 +1,5 @@
-function dividirCadena(cadenaADividir) {
-    var separador = " ";
-    var arrayDeCadenas = cadenaADividir.split(separador);
-    return arrayDeCadenas;
- };
-
-function encriptador (texto){
-    var arrayPalabras = dividirCadena(texto);
+function encriptador (arrayPalabras){
+    var textoEncriptado ="";
     var patron = new RegExp(/a|e|i|o|u/g,);
 
     /* este codigo tambien divide textos en array de palabras
@@ -13,8 +7,7 @@ function encriptador (texto){
     console.log(texto.match(regexpWords));*/
 
     for (i=0; i < arrayPalabras.length; i++){
-        var palabra = arrayPalabras[i];
-        palabra = palabra.replace(patron,function(x){
+        arrayPalabras[i] = arrayPalabras[i].replace(patron,function(x){
             if (x == "a"){ return "ai"};
             if (x == "e"){ return "enter"};
             if (x == "i"){ return "imes"};
@@ -22,23 +15,34 @@ function encriptador (texto){
             if (x == "u"){ return "ufat"};
         });
 
-        arrayPalabras[i] = palabra;
+        if (i != arrayPalabras.length - 1){
+            textoEncriptado = textoEncriptado + arrayPalabras[i] + " ";
+        }else {
+            textoEncriptado = textoEncriptado + arrayPalabras[i];
+        }
     }
-    return arrayPalabras;
+    console.log (textoEncriptado);
+    return textoEncriptado;
 }
 
-function desencriptador (texto){
-    arrayPalabras = dividirCadena(texto);
+function desencriptador (arrayPalabras){
+    var textoDesencriptado ="";
+    var patron = new RegExp(/ai|enter|imes|ober|ufat/g,);
+
     for (i=0; i < arrayPalabras.length; i++){
-        var palabra = arrayPalabras[i];
+        arrayPalabras[i] = arrayPalabras[i].replace(patron,function(x){
+            if (x == "ai"){ return "a"};
+            if (x == "enter"){ return "e"};
+            if (x == "imes"){ return "i"};
+            if (x == "ober"){ return "o"};
+            if (x == "ufat"){ return "u"};
+        });
 
-        palabra = palabra.replace(/ai/g,"a");
-        palabra = palabra.replace(/enter/g, "e");
-        palabra = palabra.replace(/imes/g,"i");
-        palabra = palabra.replace(/ober/g, "o");
-        palabra = palabra.replace(/ufat/g, "u");
-
-        arrayPalabras[i] = palabra;
+        if (i != arrayPalabras.length - 1){
+            textoDesencriptado = textoDesencriptado + arrayPalabras[i] + " ";
+        }else {
+            textoDesencriptado = textoDesencriptado + arrayPalabras[i];
+        }
     }
-    return arrayPalabras;
+    return textoDesencriptado;
 }

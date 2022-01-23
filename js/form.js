@@ -1,3 +1,9 @@
+function dividirCadena(cadenaADividir) {
+    var separador = " ";
+    var arrayDeCadenas = cadenaADividir.split(separador);
+    return arrayDeCadenas;
+ };
+
 function validarTexto (texto){
     var ul = document.querySelector("#mensajes-errores");
     const patron = new RegExp("[a-z\s]$");
@@ -28,22 +34,16 @@ function paste() {
   
 document.querySelector("#btn-copy").addEventListener("click", paste);
 
-
 var mensaje = document.querySelector("#msg");
 var encriptar = document.querySelector("#btn-encriptar");
 
 encriptar.addEventListener("click", function (evt){
     evt.preventDefault();
     var texto =document.querySelector("#input-texto").value;
-    var arrayPalabras;
+    var arrayPalabras = dividirCadena (texto);
 
     if (validarTexto(texto)) {
-        arrayPalabras = encriptador(texto);
-        var textoEncriptado ="";
-        for (i=0; i < arrayPalabras.length; i++){
-            textoEncriptado = textoEncriptado + arrayPalabras[i] + " ";
-        }
-        mensaje.value = textoEncriptado;
+        mensaje.value = encriptador(arrayPalabras);
     }else{ 
         mensaje.value = "";
     }
@@ -54,17 +54,11 @@ var desencriptar = document.querySelector("#btn-desencriptar");
 desencriptar.addEventListener("click", function (evt){
     evt.preventDefault();
     var texto =document.querySelector("#input-texto").value;
-    console.log (texto);
-    var arrayPalabras;
+    var arrayPalabras = dividirCadena(texto);
 
-    //if (validarTexto(texto)) {
-        arrayPalabras = desencriptador(texto);
-        var textoDesencriptado ="";
-        for (i=0; i < arrayPalabras.length; i++){
-            textoDesencriptado = textoDesencriptado + arrayPalabras[i] + " ";
-        }
-        mensaje.value = textoDesencriptado;
-    /*}else{ 
+    if (validarTexto(texto)) {
+        mensaje.value = desencriptador(arrayPalabras);
+    }else{ 
         mensaje.value = "";
-    }*/
+    }
 });
