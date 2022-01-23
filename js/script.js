@@ -1,12 +1,23 @@
+function dividirCadena(cadenaADividir) {
+    var separador = " ";
+    var arrayDeCadenas = cadenaADividir.split(separador);
+    return arrayDeCadenas;
+ };
+
 function encriptador (texto){
-    arrayPalabras = dividirCadena(texto);
+    var arrayPalabras = dividirCadena(texto);
+    var patron = new RegExp(/a|e|i|o|u/g,);
+
     for (i=0; i < arrayPalabras.length; i++){
         var palabra = arrayPalabras[i];
-        palabra = palabra.replace(/a/g,"ai");
-        palabra = palabra.replace(/e/g, "enter");
-        palabra = palabra.replace(/i/g,"imes");
-        palabra = palabra.replace(/o/g, "ober");
-        palabra = palabra.replace(/u/g, "ufat");
+        console.log(palabra);
+        palabra = palabra.replace(patron,function(x){
+            if (x == "a"){ return "ai"};
+            if (x == "e"){ return "enter"};
+            if (x == "i"){ return "imes"};
+            if (x == "o"){ return "ober"};
+            if (x == "u"){ return "ufat"};
+        });
 
         arrayPalabras[i] = palabra;
     }

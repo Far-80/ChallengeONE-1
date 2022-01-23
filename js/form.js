@@ -1,10 +1,3 @@
-
-function dividirCadena(cadenaADividir) {
-    var separador = " ";
-    var arrayDeCadenas = cadenaADividir.split(separador);
-    return arrayDeCadenas;
- };
-
 function validarTexto (texto){
     const patron = new RegExp('^[a-z\s]');
     var valido = false;
@@ -18,7 +11,21 @@ function validarTexto (texto){
     return valido;
 }
 
+function copy() {
+    var copyText = document.querySelector("#msg");
+    copyText.select();
+    document.execCommand("copy");
+  }
+  
+document.querySelector("#btn-copy").addEventListener("click", copy);
 
+function paste() {
+    var pasteText = document.querySelector("#msg");
+    pasteText.focus();
+    document.execCommand("paste");
+  }
+  
+  document.querySelector("#btn-copy").addEventListener("click", paste);
 
 var encriptar = document.querySelector("#btn-encriptar");
 
