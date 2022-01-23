@@ -8,9 +8,12 @@ function encriptador (texto){
     var arrayPalabras = dividirCadena(texto);
     var patron = new RegExp(/a|e|i|o|u/g,);
 
+    /* este codigo tambien divide textos en array de palabras
+    const regexpWords = /\b\w+\b/g;
+    console.log(texto.match(regexpWords));*/
+
     for (i=0; i < arrayPalabras.length; i++){
         var palabra = arrayPalabras[i];
-        console.log(palabra);
         palabra = palabra.replace(patron,function(x){
             if (x == "a"){ return "ai"};
             if (x == "e"){ return "enter"};
