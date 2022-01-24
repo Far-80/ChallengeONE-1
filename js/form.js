@@ -6,7 +6,7 @@ function dividirCadena(cadenaADividir) {
 
 function validarTexto (texto){
     var ul = document.querySelector("#mensajes-errores");
-    const patron = new RegExp("[a-z\s]$");
+    const patron = new RegExp("[a-z!¡?¿\s]$");
     var mensajeError = "Texto invalido: vacio, contiene mayuscula, acento o es algún caracter!";
     
     var valido = false;
